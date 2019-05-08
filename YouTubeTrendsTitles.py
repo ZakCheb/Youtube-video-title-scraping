@@ -9,10 +9,8 @@ HEADERS={
 import requests as req
 
 resp = req.get("https://www.youtube.com/feed/trending",headers=HEADERS)
-#print(resp.text)
 
 data= BeautifulSoup(resp.text,'html.parser')
 titles=data.find_all(class_="yt-uix-tile-link")
-for i in titles:
-    print(i.text)
-#print(dir(titles[0]))
+for title in titles:
+    print(title.text)
